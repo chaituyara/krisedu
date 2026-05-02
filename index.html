@@ -4,55 +4,48 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Kris Edu</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
   <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #0a0a0a;
-      color: white;
-    }
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px 40px;
-      border-bottom: 1px solid #222;
-    }
-    .logo {
-      font-size: 24px;
-      color: gold;
-      font-weight: bold;
-    }
-    nav a {
-      color: white;
-      margin-left: 20px;
-      text-decoration: none;
-    }
-    .hero {
-      text-align: center;
-      padding: 100px 20px;
-    }
-    .hero h1 {
-      font-size: 48px;
-      color: gold;
-    }
-    .section {
-      padding: 60px 40px;
-      text-align: center;
-    }
-    .footer {
-      text-align: center;
-      padding: 20px;
-      border-top: 1px solid #222;
-      font-size: 14px;
-      color: #aaa;
+    * {margin:0;padding:0;box-sizing:border-box;}
+    body {font-family:'Inter',sans-serif;background:#0b0b0b;color:#eaeaea;}
+
+    header {display:flex;justify-content:space-between;align-items:center;padding:24px 60px;position:fixed;width:100%;background:rgba(11,11,11,0.8);backdrop-filter:blur(10px);z-index:1000;}
+    .logo img {height:42px;}
+    nav a {margin-left:30px;text-decoration:none;color:#ccc;font-size:14px;letter-spacing:1px;}
+    nav a:hover {color:#d4af37;}
+
+    .hero {height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:0 20px;}
+    .hero h1 {font-family:'Playfair Display',serif;font-size:64px;color:#d4af37;margin-bottom:20px;}
+    .hero p {font-size:18px;color:#aaa;max-width:600px;}
+    .btn {margin-top:30px;padding:14px 32px;border:1px solid #d4af37;color:#d4af37;text-decoration:none;letter-spacing:1px;transition:0.3s;}
+    .btn:hover {background:#d4af37;color:#000;}
+
+    .section {padding:120px 60px;text-align:center;}
+    h2 {font-family:'Playfair Display',serif;color:#d4af37;font-size:36px;margin-bottom:20px;}
+    .section p {max-width:700px;margin:0 auto;color:#bbb;}
+
+    .grid {display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:40px;margin-top:60px;}
+    .card {padding:40px;background:#111;border:1px solid #222;transition:0.3s;}
+    .card:hover {border-color:#d4af37;transform:translateY(-5px);}
+
+    form input, form textarea {width:100%;padding:12px;margin:10px 0;background:#111;border:1px solid #222;color:white;}
+    form button {padding:12px 28px;background:#d4af37;border:none;color:black;cursor:pointer;}
+
+    footer {padding:40px;text-align:center;border-top:1px solid #222;color:#777;font-size:14px;}
+
+    @media(max-width:768px){
+      header {padding:20px;}
+      .hero h1 {font-size:42px;}
+      .section {padding:80px 20px;}
     }
   </style>
 </head>
 <body>
 
 <header>
-  <div class="logo">KE</div>
+  <div class="logo">
+    <img src="logo.png" alt="KE Logo">
+  </div>
   <nav>
     <a href="#about">About</a>
     <a href="#services">Services</a>
@@ -62,27 +55,37 @@
 
 <section class="hero">
   <h1>Kris Edu</h1>
-  <p>Elevating Minds. Empowering Futures.</p>
+  <p>Where Excellence Meets Education. A refined approach to growth, clarity, and modern learning.</p>
+  <a href="#contact" class="btn">Get Started</a>
 </section>
 
 <section id="about" class="section">
   <h2>About</h2>
-  <p>Kris Edu is focused on helping individuals grow through clear guidance and modern education support.</p>
+  <p>Kris Edu is a premium education brand focused on clarity, direction, and real progress. We help individuals unlock their potential with a refined, modern approach.</p>
 </section>
 
 <section id="services" class="section">
   <h2>What We Do</h2>
-  <p>Academic Support • Personal Development • Study Guidance</p>
+  <div class="grid">
+    <div class="card">Academic Support</div>
+    <div class="card">Personal Development</div>
+    <div class="card">Study Strategy</div>
+  </div>
 </section>
 
 <section id="contact" class="section">
   <h2>Contact</h2>
-  <p>Email: your@email.com</p>
+  <form action="https://formspree.io/f/yourformid" method="POST">
+    <input type="text" name="name" placeholder="Your Name" required>
+    <input type="email" name="email" placeholder="Your Email" required>
+    <textarea name="message" placeholder="Your Message" rows="4"></textarea>
+    <button type="submit">Send Message</button>
+  </form>
 </section>
 
-<div class="footer">
-  © 2026 Kris Edu
-</div>
+<footer>
+  © 2026 Kris Edu — All rights reserved
+</footer>
 
 </body>
 </html>
