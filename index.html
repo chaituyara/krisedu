@@ -7,7 +7,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'Inter',sans-serif;background:#0b0b0b;color:#fff;overflow-x:hidden}
+body{font-family:'Inter',sans-serif;background:#0b0b0b;color:#fff;overflow-x:hidden;transition:background 1s ease}
 
 #loader{position:fixed;inset:0;background:#0b0b0b;display:flex;align-items:center;justify-content:center;z-index:2000;transition:.6s}
 #loader h1{font-family:'Playfair Display';color:#d4af37;font-size:42px;animation:pulse 1.5s infinite}
@@ -23,7 +23,6 @@ nav a:hover{color:#d4af37}
 .hero p{color:#aaa;max-width:600px;opacity:0;transform:translateY(40px)}
 .btn{margin-top:20px;padding:12px 28px;border:1px solid #d4af37;color:#d4af37;text-decoration:none;opacity:0;transform:translateY(40px)}
 
-/* Story sections */
 .story{height:120vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:0 20px}
 .story h2{font-family:'Playfair Display';font-size:42px;max-width:700px;line-height:1.4;opacity:0;transform:translateY(80px);transition:1s}
 .story.show h2{opacity:1;transform:translateY(0)}
@@ -56,13 +55,12 @@ footer{padding:30px;text-align:center;border-top:1px solid #222;color:#777}
 <a href="#contact" class="btn fade">Start</a>
 </section>
 
-<!-- Storytelling sections -->
-<section class="story"><h2>Most students feel lost.</h2></section>
-<section class="story"><h2>Too much information. No direction.</h2></section>
-<section class="story"><h2>That’s where Kris Edu comes in.</h2></section>
-<section class="story"><h2>Clarity. Strategy. Real results.</h2></section>
+<section class="story" data-bg="#0b0b0b"><h2>Most students feel lost.</h2></section>
+<section class="story" data-bg="#111"><h2>Too much information. No direction.</h2></section>
+<section class="story" data-bg="#1a1a1a"><h2>That’s where Kris Edu comes in.</h2></section>
+<section class="story" data-bg="#000"><h2>Clarity. Strategy. Real results.</h2></section>
 
-<section class="section">
+<section class="section" data-bg="#0b0b0b">
 <h2 style="color:#d4af37">What You Get</h2>
 <div class="grid">
 <div class="card">1:1 Guidance</div>
@@ -71,7 +69,7 @@ footer{padding:30px;text-align:center;border-top:1px solid #222;color:#777}
 </div>
 </section>
 
-<section id="contact" class="section">
+<section id="contact" class="section" data-bg="#0b0b0b">
 <h2 style="color:#d4af37">Apply</h2>
 <form action="https://formspree.io/f/yourformid" method="POST">
 <input type="text" name="name" placeholder="Name" required>
@@ -95,7 +93,13 @@ setTimeout(()=>{el.style.opacity=1;el.style.transform='translateY(0)';el.style.t
 
 const observer=new IntersectionObserver(entries=>{
 entries.forEach(entry=>{
-if(entry.isIntersecting){entry.target.classList.add('show')}
+if(entry.isIntersecting){
+entry.target.classList.add('show');
+
+// background change
+const bg = entry.target.getAttribute('data-bg');
+if(bg){document.body.style.background = bg;}
+}
 })
 },{threshold:.4});
 
