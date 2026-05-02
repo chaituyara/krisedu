@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kris Edu</title>
+<title>KE</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
@@ -21,7 +21,8 @@ nav a:hover{color:#d4af37}
 .hero{height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center}
 .hero h1{font-family:'Playfair Display';font-size:64px;color:#d4af37;opacity:0;transform:translateY(40px)}
 .hero p{color:#aaa;max-width:600px;opacity:0;transform:translateY(40px)}
-.btn{margin-top:20px;padding:12px 28px;border:1px solid #d4af37;color:#d4af37;text-decoration:none;opacity:0;transform:translateY(40px)}
+.btn{margin-top:20px;padding:12px 28px;border:1px solid #d4af37;color:#d4af37;text-decoration:none;opacity:0;transform:translateY(40px);transition:.3s}
+.btn:hover{background:#d4af37;color:#000}
 
 .story{height:120vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:0 20px}
 .story h2{font-family:'Playfair Display';font-size:42px;max-width:700px;line-height:1.4;opacity:0;transform:translateY(80px);transition:1s}
@@ -45,41 +46,37 @@ footer{padding:30px;text-align:center;border-top:1px solid #222;color:#777}
 <div class="logo"><img src="logo.png"></div>
 <nav>
 <a href="#about">About</a>
-<a href="#contact">Contact</a>
+<a href="#follow">Follow</a>
 </nav>
 </header>
 
 <section class="hero">
-<h1 class="fade">Kris Edu</h1>
-<p class="fade">A different way to approach education.</p>
-<a href="#contact" class="btn fade">Start</a>
+<h1 class="fade">KE</h1>
+<p class="fade">Level up your mindset. Build discipline. Create a life most people won’t.</p>
+<a href="https://instagram.com/yourusername" target="_blank" class="btn fade">Follow on Instagram</a>
 </section>
 
-<section class="story" data-bg="#0b0b0b"><h2>Most students feel lost.</h2></section>
-<section class="story" data-bg="#111"><h2>Too much information. No direction.</h2></section>
-<section class="story" data-bg="#1a1a1a"><h2>That’s where Kris Edu comes in.</h2></section>
-<section class="story" data-bg="#000"><h2>Clarity. Strategy. Real results.</h2></section>
+<section class="story" data-bg="#0b0b0b"><h2>Most people stay average.</h2></section>
+<section class="story" data-bg="#111"><h2>No discipline. No direction.</h2></section>
+<section class="story" data-bg="#1a1a1a"><h2>Scrolling. Wasting time.</h2></section>
+<section class="story" data-bg="#000"><h2>This is different.</h2></section>
 
-<section class="section" data-bg="#0b0b0b">
-<h2 style="color:#d4af37">What You Get</h2>
+<section id="about" class="section" data-bg="#0b0b0b">
+<h2 style="color:#d4af37">What You’ll Get</h2>
 <div class="grid">
-<div class="card">1:1 Guidance</div>
-<div class="card">Study System</div>
-<div class="card">Performance Growth</div>
+<div class="card">Mindset</div>
+<div class="card">Discipline</div>
+<div class="card">Growth</div>
 </div>
 </section>
 
-<section id="contact" class="section" data-bg="#0b0b0b">
-<h2 style="color:#d4af37">Apply</h2>
-<form action="https://formspree.io/f/yourformid" method="POST">
-<input type="text" name="name" placeholder="Name" required>
-<input type="email" name="email" placeholder="Email" required>
-<textarea name="message" placeholder="Your goal"></textarea>
-<button type="submit">Submit</button>
-</form>
+<section id="follow" class="section" data-bg="#0b0b0b">
+<h2 style="color:#d4af37">Join the Movement</h2>
+<p style="color:#bbb">Follow now and start building a better version of yourself.</p>
+<a href="https://instagram.com/yourusername" target="_blank" class="btn">Follow @yourusername</a>
 </section>
 
-<footer>© 2026 Kris Edu</footer>
+<footer>© 2026 KE</footer>
 
 <script>
 window.addEventListener('load',()=>{
@@ -95,8 +92,6 @@ const observer=new IntersectionObserver(entries=>{
 entries.forEach(entry=>{
 if(entry.isIntersecting){
 entry.target.classList.add('show');
-
-// background change
 const bg = entry.target.getAttribute('data-bg');
 if(bg){document.body.style.background = bg;}
 }
